@@ -9,6 +9,8 @@ class DealList {
     }
 
     get deals() {
-        return this._deals;
+        //programação defensiva: através do [].concat um novo obj é criado na memória e esse é o que será devolvido
+        //com outros métodos (ex: push) é possível adicionar itens, mas numa copia e ñ na original
+        return [].concat(this._deals);
     }
 }

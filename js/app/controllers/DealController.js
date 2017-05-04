@@ -16,9 +16,8 @@ class DealController {
         //let helper = new DateHelper();
 
         //init
-        this._dealList.add(this._createDeal());
+        this._dealList.add(this._createDeal()); //esse deve ser o único jeito de adicionar uma nova negociação
         this._cleanForm();
-        console.log(this._dealList.deals);
     }
 
     //o _ é pra deixar claro que esse método só deve ser chamado por esta classe
@@ -34,7 +33,6 @@ class DealController {
         this._date.value = '';
         this._quantity.value = 1;
         this._valuation.value = 0.0;
-
         this._date.focus();
     }
 
