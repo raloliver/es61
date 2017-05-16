@@ -6,10 +6,14 @@ class DealController {
         this._quantity = $('#quantidade');
         this._valuation = $('#valor');
         this._dealList = new DealList();
-        this._dealView = new DealView($('#deal-view'));
 
+        this._dealView = new DealView($('#deal-view'));
         //além de adicionar a tabela na view é preciso preencher ela com os valores e isso deve ser feito também ao adicionar novas deals
         this._dealView.update(this._dealList);
+
+        this._message = new Message();
+        this._messageView= new MessageView($('#message-view'));
+        this._messageView.update(this._message);
     }
 
     add(event) {
@@ -22,6 +26,10 @@ class DealController {
         //init
         this._dealList.add(this._createDeal()); //esse deve ser o único jeito de adicionar uma nova negociação
         this._dealView.update(this._dealList);        
+
+        this._message.text = 'Success! Deal maked.' //logo após criar uma negociação a mensagem deve ser exibida
+        this._messageView.update(this._message);
+        
         this._cleanForm();
     }
 
