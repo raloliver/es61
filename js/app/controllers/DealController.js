@@ -6,6 +6,10 @@ class DealController {
         this._quantity = $('#quantidade');
         this._valuation = $('#valor');
         this._dealList = new DealList();
+        this._dealView = new DealView($('#deal-view'));
+
+        //além de adicionar a tabela na view é preciso preencher ela com os valores e isso deve ser feito também ao adicionar novas deals
+        this._dealView.update(this._dealList);
     }
 
     add(event) {
@@ -17,6 +21,7 @@ class DealController {
 
         //init
         this._dealList.add(this._createDeal()); //esse deve ser o único jeito de adicionar uma nova negociação
+        this._dealView.update(this._dealList);        
         this._cleanForm();
     }
 
